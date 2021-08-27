@@ -8,7 +8,6 @@ from selenium.common.exceptions import NoSuchElementException
 import pandas as pd
 import shutil
 import os
-import datetime
 from params import output_dir, user_name, password, driver_path
 
 # Folder tmp
@@ -51,15 +50,12 @@ def descarga(soc):
     element = driver.find_element_by_id("M0:46:::30:34")
     element.clear()
     element.send_keys(layout)
-    # Cálculo último día del mes
-    today = datetime.date.today()
-    first = today.replace(day=1)
-    eopm = first - datetime.timedelta(days=1)
-    eopm = eopm.strftime("%d.%m.%Y")
+    ayer = datetime.today() - timedelta(days=1)
+    d1 = ayer.strftime("%d.%m.%Y")
     element = driver.find_element_by_id("M0:46:::12:34")    # Fecha
     element.click()
     element.clear()
-    element.send_keys(eopm)
+    element.send_keys(d1)
     chequear_estado(driver)
 
     try:
