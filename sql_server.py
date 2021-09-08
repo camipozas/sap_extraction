@@ -12,3 +12,4 @@ def connection():
 def test(df):
     engine = connection()
     df.to_sql('data_diaria_fbl5n', con=engine, if_exists='replace', index=False)
+    engine.execute("exec [BULK_Estado_morosidad]")
