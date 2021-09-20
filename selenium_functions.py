@@ -129,7 +129,8 @@ def consolidar(output_dir):
   df = pd.DataFrame()
   # Filtramos solo los archivos excel
   excels = [file for file in os.listdir(output_dir) if file.endswith('.xlsx')]
-  for excel in excels:
+  excels_limpio = [ excel for excel in excels if not excel.startswith('export')]
+  for excel in excels_limpio:
     # Leemos archivo
     tmp = pd.read_excel(os.path.join(output_dir, excel))
 
