@@ -26,6 +26,8 @@ Por último, en teoría están mapeados todos los posibles errores de SAP de tal
 *Nota:* Para poder realizar inspection en una scrollbar, se basó en lo siguiente:
 https://twitter.com/sulco/status/1305841873945272321
 
+Para instalar chromedriver, debe buscar su versión de Chrome y luego descargarla aquí [Chrome Driver](https://chromedriver.chromium.org/downloads)
+
 ## ***English Version***
 
 This is a bot for the extraction in SAP Fiori transaction.
@@ -49,6 +51,8 @@ Things to consider, when changing users it depends on their role and profile whi
 Finally, in theory all possible SAP errors are mapped in such away that they doesn't have to be executed in a supervised way.
 
 *Note:* To be able to perform inspection in a scrollbar, was based on this following: https://twitter.com/sulco/status/1305841873945272321 
+
+For install the chromedriver you have to search your chrome version and then download it here [Chrome Driver](https://chromedriver.chromium.org/downloads)
 
 ## *SQL*
 Install [ODBC](https://docs.microsoft.com/en-us/sql/connect/odbc/linux-mac/install-microsoft-odbc-driver-sql-server-macos?view=sql-server-ver15)
