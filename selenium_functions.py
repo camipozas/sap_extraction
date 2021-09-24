@@ -69,8 +69,6 @@ def descarga(soc):
     except NoSuchElementException:
         print("...")
 
-    #chequear_estado(driver)
-
     #   Descargar
     #   Esperar a que se procesen los datos, si se demora más de 1000 segundos, falla.
     element = WebDriverWait(driver, 1000).until(
