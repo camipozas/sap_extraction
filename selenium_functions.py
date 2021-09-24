@@ -69,6 +69,8 @@ def descarga(soc):
     except NoSuchElementException:
         print("...")
 
+    #chequear_estado(driver)
+
     #   Descargar
     #   Esperar a que se procesen los datos, si se demora más de 1000 segundos, falla.
     element = WebDriverWait(driver, 1000).until(
@@ -111,7 +113,7 @@ def descarga(soc):
             print('error')
     finally:
         driver.quit()
-
+    
 def limpiar_output(output_dir):
   # Si existe la carpeta la eliminamos
   if os.path.isdir(output_dir):
