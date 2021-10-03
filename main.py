@@ -8,7 +8,6 @@ from sql_server import test
 from params import (
   user_name,
   password,
-  driver_path,
   server_sql,
   database,
   user_sql,
@@ -22,9 +21,10 @@ sociedades = [2000,2100,2200,3000,3100]
 
 def descargar_recursivo(soc):
   try:
-     descarga(soc)
-  except:
-     descargar_recursivo(soc)
+    descarga(soc)
+  except Exception as e:
+    print(e)
+    descargar_recursivo(soc)
 
 for i in sociedades:
     descargar_recursivo(i)
