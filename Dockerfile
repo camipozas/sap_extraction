@@ -53,4 +53,8 @@ ADD .env .env
 
 COPY . $APP_HOME/
 
+ADD openssl.cnf /etc/ssl/openssl.cnf
+
+RUN cat /etc/ssl/openssl.cnf
+
 CMD python3 main.py
