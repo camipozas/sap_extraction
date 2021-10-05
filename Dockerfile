@@ -1,14 +1,13 @@
-FROM ubuntu AS selenium
+FROM python:slim-buster AS selenium
 
 ENV TZ=America/Los_Angeles \
     DEBIAN_FRONTEND=noninteractive
 
 RUN apt-get update && apt-get install -y \
-    python3 python3-pip \
     fonts-liberation libappindicator3-1 libasound2 libatk-bridge2.0-0 \
     libnspr4 libnss3 lsb-release xdg-utils libxss1 libdbus-glib-1-2 \
     curl unzip wget \
-    xvfb libgbm1
+    xvfb libgbm1 gnupg g++
 
 # install chromedriver and google-chrome
 
@@ -39,9 +38,9 @@ WORKDIR /$APP_HOME
 # Install mysqlserver
 
 RUN curl https://packages.microsoft.com/keys/microsoft.asc | apt-key add - && \
-    curl https://packages.microsoft.com/config/ubuntu/20.04/prod.list > /etc/apt/sources.list.d/mssql-release.list && \
+    curl https://packages.microsoft.com/config/debian/10/prod.list > /etc/apt/sources.list.d/mssql-release.list && \
     apt-get update && \
-    ACCEPT_EULA=Y apt-get install -y msodbcsql17 unixodbc-dev
+    ACCEPT_EULA=Y apt-get install -y msodbcsql17 unixodbc-dev libgssapi-krb5-2
 
 # Install python dependencies
 
