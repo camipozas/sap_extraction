@@ -7,7 +7,7 @@ RUN apt-get update && apt-get install -y \
     fonts-liberation libappindicator3-1 libasound2 libatk-bridge2.0-0 \
     libnspr4 libnss3 lsb-release xdg-utils libxss1 libdbus-glib-1-2 \
     curl unzip wget \
-    xvfb libgbm1 gnupg g++
+    xvfb libgbm1 gnupg g++ openssl
 
 # install chromedriver and google-chrome
 
@@ -23,11 +23,6 @@ RUN CHROME_SETUP=google-chrome.deb && \
     apt-get install -y -f && \
     rm $CHROME_SETUP
 
-
-
-RUN pip3 install selenium
-RUN pip3 install pyvirtualdisplay
-
 ENV LANG C.UTF-8
 ENV LC_ALL C.UTF-8
 ENV PYTHONUNBUFFERED=1
@@ -40,13 +35,16 @@ WORKDIR /$APP_HOME
 RUN curl https://packages.microsoft.com/keys/microsoft.asc | apt-key add - && \
     curl https://packages.microsoft.com/config/debian/10/prod.list > /etc/apt/sources.list.d/mssql-release.list && \
     apt-get update && \
-    ACCEPT_EULA=Y apt-get install -y msodbcsql17 unixodbc-dev libgssapi-krb5-2
+    ACCEPT_EULA=Y apt-get install -y msodbcsql17 mssql-tools && \
+    echo 'export PATH="$PATH:/opt/mssql-tools/bin"' >> ~/.bashrc
+
+RUN  apt-get install -y unixodbc-dev libgssapi-krb5-2
 
 # Install python dependencies
 
 COPY requirements.txt /tmp/
-RUN pip3 install --requirement /tmp/requirements.txt
-
+RUN pip install --requirement /tmp/requirements.txt
+RUN pip freeze
 # Copy env variables
 ADD .env .env
 
@@ -57,4 +55,4 @@ ADD openssl.cnf /etc/ssl/openssl.cnf
 
 RUN cat /etc/ssl/openssl.cnf
 
-CMD python3 main.py
+CMD python main.py
