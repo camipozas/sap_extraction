@@ -147,4 +147,5 @@ def consolidar(output_dir):
       df = tmp.copy()
     else:
       df = pd.concat([df, tmp])
+      df['fecha_extraccion'] = datetime.today()
   return df
