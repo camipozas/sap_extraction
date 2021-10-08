@@ -18,3 +18,6 @@ mssql_driver = env("mssql_driver", "ODBC+Driver+17+for+SQL+Server")
 
 # Output 
 output_dir = os.path.join(os.getcwd(), 'output')
+
+# Robot a correr
+bot_a_correr = env("bot_a_correr", "fbl5n_diario")
