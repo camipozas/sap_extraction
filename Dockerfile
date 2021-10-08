@@ -44,13 +44,8 @@ RUN  apt-get install -y unixodbc-dev libgssapi-krb5-2
 
 COPY requirements.txt /tmp/
 RUN pip install --requirement /tmp/requirements.txt
-RUN pip freeze
-# Copy env variables
-ADD .env .env
 
-
-COPY . $APP_HOME/
-
+# Configure locale
 ADD openssl.cnf /etc/ssl/openssl.cnf
 
 RUN cat /etc/ssl/openssl.cnf
@@ -60,5 +55,13 @@ RUN apt-get install -y locales locales-all
 ENV LC_ALL es_CL.UTF-8
 ENV LANG es_CL.UTF-8
 ENV LANGUAGE es_CL.UTF-8
+
+# Copy env variables
+ADD .env .env
+
+
+COPY . $APP_HOME/
+
+
 
 CMD python main.py

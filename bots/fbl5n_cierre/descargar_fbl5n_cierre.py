@@ -19,7 +19,7 @@ prefs = {'download.default_directory' : output_dir}
 options.add_experimental_option('prefs', prefs)
 
 # Ingreso a transacción y descarga
-def descarga(soc):
+def descargar_fbl5n_cierre(soc):
     driver = webdriver.Chrome(options = options)
 
     #   Ingresar a SAP
