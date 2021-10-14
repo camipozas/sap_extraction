@@ -1,0 +1,40 @@
+from selenium_functions import limpiar_output
+from params import output_dir
+from selenium_functions import descarga
+from selenium_functions import consolidar
+from sql_server import test
+
+# Credenciales
+from params import (
+  user_name,
+  password,
+  server_sql,
+  database,
+  user_sql,
+  pass_sql
+)
+
+# Limpiamos output antes de iniciar
+limpiar_output(output_dir)
+# Corremos for
+sociedades = [2000,2100,2200,3000,3100]
+
+def descargar_recursivo(soc):
+  try:
+    descarga(soc)
+  except Exception as e:
+    print(e)
+    descargar_recursivo(soc)
+
+for i in sociedades:
+    descargar_recursivo(i)
+    print(i)
+
+# Consolidamos en un solo archivo
+consolidado = consolidar(output_dir)
+consolidado.to_excel('consolidado.xlsx')
+#print('terminado')
+
+# SQL SERVER
+test(consolidado)    # Guardamos valores en SQL
+print('finalizado')

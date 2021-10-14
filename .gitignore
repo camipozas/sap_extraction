@@ -1,1 +1,7 @@
 .env
+env/
+.DS_Store
+chromedriver*
+*.xlsx
+__pycache__/
+.tar
