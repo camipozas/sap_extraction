@@ -30,12 +30,12 @@ def descargar_recursivo(sociedades):
      descargar_recursivo(sociedades)
 
 for i in sociedades:
-    try:
-      descargar_recursivo(i)
-    except:
-      print(f"salta sociedad {i}")
-      continue
-    print(i)
+  try:
+   descargar_recursivo(i)
+  except:
+    print('trying again...')
+    descargar_recursivo(i)
+  print(i)
 
 # Consolidamos en un solo archivo
 consolidado = consolidar(output_dir)
