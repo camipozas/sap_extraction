@@ -3,6 +3,7 @@ from params import output_dir
 from selenium_functions import descarga
 from selenium_functions import consolidar
 from sql_server import test
+from decorator import log
 
 # Credenciales
 from params import (
@@ -19,15 +20,21 @@ limpiar_output(output_dir)
 # Corremos for
 sociedades = [2000,2100,2200,3000,3100]
 
-def descargar_recursivo(soc):
+@log
+def descargar_recursivo(sociedades):
   try:
-    descarga(soc)
-  except Exception as e:
-    print(e)
-    descargar_recursivo(soc)
+     descarga(sociedades)
+  except ValueError("Sin datos en sociedad"):
+    raise ValueError("SALTA CUENTA")
+  except:
+     descargar_recursivo(sociedades)
 
 for i in sociedades:
-    descargar_recursivo(i)
+    try:
+      descargar_recursivo(i)
+    except:
+      print(f"salta sociedad {i}")
+      continue
     print(i)
 
 # Consolidamos en un solo archivo
