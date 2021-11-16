@@ -18,7 +18,7 @@ from params import (
 # Limpiamos output antes de iniciar
 limpiar_output(output_dir)
 # Corremos for
-sociedades = [2000,2100,2200,3000,3100]
+sociedades = [2100,2200,3000,3100]
 
 @log
 def descargar_recursivo(sociedades):
@@ -26,16 +26,18 @@ def descargar_recursivo(sociedades):
      descarga(sociedades)
   except ValueError("Sin datos en sociedad"):
     raise ValueError("SALTA CUENTA")
+  except ValueError("RAM SAP"):
+   descargar_recursivo(sociedades)
   except:
      descargar_recursivo(sociedades)
 
 for i in sociedades:
-  try:
-   descargar_recursivo(i)
-  except:
-    print('trying again...')
-    descargar_recursivo(i)
-  print(i)
+    try:
+      descargar_recursivo(i)
+    except:
+      print(f"salta sociedad {i}")
+      continue
+    print(i)
 
 # Consolidamos en un solo archivo
 consolidado = consolidar(output_dir)
