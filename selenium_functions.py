@@ -33,17 +33,23 @@ def chequear_estado(driver):
     try:
         error = driver.find_element_by_id("wnd[0]/sbar_msg-txt")
         displayed = error.is_displayed()
-        if displayed:
+        error2 = driver.find_elements_by_class_name("sapUshellHeadTitle")
+        ram = error2.is_displayed()
+        if displayed or ram:
           text = error.get_attribute('innerHTML')
+          text2 = error2.get_attribute('innerHTML')
           regex_vacio = r"No se ha seleccionado ninguna partida"
           regex_timeout = r"Tiempo de espera"
           regex_autorizacion = r"No tiene autorización para la sociedad"
+          regex_ram = r"Cancel SAP"
           if re.match(regex_vacio, text):
            raise ValueError("Sin datos en sociedad")
           elif re.match(regex_timeout, text):
             raise ValueError('Error de SAP')
           elif re.match(regex_autorizacion, text):
             raise ValueError('Error autorización')
+          elif re.match(regex_ram, text2):
+            raise ValueError('RAM SAP')
     except NoSuchElementException:
         pass
 
