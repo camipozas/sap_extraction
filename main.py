@@ -18,7 +18,7 @@ from params import (
 # Limpiamos output antes de iniciar
 limpiar_output(output_dir)
 # Corremos for
-sociedades = [2000,2100,2200,3000,3100]
+sociedades = [2100,2200,3000,3100]
 
 @log
 def descargar_recursivo(sociedades):
@@ -27,7 +27,7 @@ def descargar_recursivo(sociedades):
   except ValueError("Sin datos en sociedad"):
     raise ValueError("SALTA CUENTA")
   except ValueError("RAM SAP"):
-    descargar_recursivo(sociedades)
+   descargar_recursivo(sociedades)
   except:
      descargar_recursivo(sociedades)
 

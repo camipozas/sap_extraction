@@ -96,8 +96,6 @@ def descarga(soc):
               print("FOUND THE LINK CREATE ACTIVITY! and Clicked it!")
       except NoSuchElementException:
           print("...")
-
-      chequear_estado(driver)
       
       #   Descargar
       #   Esperar a que se procesen los datos, si se demora más de 1000 segundos, falla.
