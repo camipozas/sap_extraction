@@ -1,4 +1,4 @@
-FROM python:slim-buster AS selenium
+FROM python:3.9-slim-buster AS selenium
 
 ENV TZ=America/Los_Angeles \
     DEBIAN_FRONTEND=noninteractive
