@@ -57,7 +57,7 @@ def chequear_estado(driver):
 @log
 def descarga(soc):
     #with webdriver.Chrome(driver_path, options = options) as driver:
-      driver = webdriver.Chrome(driver_path, options = options)
+      driver = webdriver.Chrome(options = options)
       driver.get("https://dims4prdci.dimerc.cl:8001/sap/bc/ui5_ui5/ui2/ushell/shells/abap/FioriLaunchpad.html#Shell-startGUI?sap-ui2-tcode=FBL5N&sap-system=PRDCLNT300")
       element = driver.find_element_by_id("USERNAME_FIELD-inner")
       element.send_keys(user_name)
