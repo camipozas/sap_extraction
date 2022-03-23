@@ -17,7 +17,7 @@ En primer lugar, se definió la función *descarga()* que ingresa a la transacci
 
 Cabe destacar que SAP posee frames, es decir páginas dentro de otra página por lo que hay que utilizar switch para ingresar.
 
-Por otro lado, los archivos extraidos individualmente se alojaron en una carpeta temporal en el código en donde una vez consolidados todos los archivos estos se eliminan. El consolidado es un dataframe que convierte a excel.
+Por otro lado, los archivos extraídos individualmente se alojaron en una carpeta temporal en el código en donde una vez consolidados todos los archivos estos se eliminan. El consolidado es un dataframe que convierte a excel.
 
 Cosas a considerar, al cambiar de usuario depende de su rol y perfil dentro de la plataforma dado que su url dependerá de está y a su vez la forma de ingresar a la transacción (frames)
 
@@ -40,7 +40,7 @@ The libraries used are:
 - Os
 - Shutil
 - Pandas
-- sqlalchemy (conection to sql server)
+- sqlalchemy (connection to sql server)
 
 Fistable, I defined the function *descarga()* that enters in the transaction in SAP by selenium I did the all scraping to do all the flow and extract the data.
 
@@ -48,7 +48,7 @@ Notably SAP have frames, that is websites inside another websites so we have to 
 
 Secondly, the individually downloads files were hosted in a temporary folder in the same code, where once all the files consolidated, they are deleted. This consolidated is a dataframe that converts to excel.
 
-Things to consider, when changing users it depends on their role and profile whithin the platform since their url will depend on this and in turn the way to enter the transaction (frames).
+Things to consider, when changing users it depends on their role and profile within the platform since their url will depend on this and in turn the way to enter the transaction (frames).
 
 Finally, in theory all possible SAP errors are mapped in such away that they doesn't have to be executed in a supervised way.
 
