@@ -1,27 +1,8 @@
 # SAP EXTRACTION FBL5N
 
-## ***Spanish Version***
+## English Version
 
-Bot para extracción de transacción FBL5N en SAP Fiori.
-
-En primer lugar, se definió la función *descarga()* que ingresa a la transacción de SAP, mediante selenium se realizan todos los clicks correspondientes para poder realizar el flujo completo y extraer los datos.
-
-Cabe destacar que SAP posee frames, es decir páginas dentro de otra página por lo que hay que utilizar switch para ingresar.
-
-Por otro lado, los archivos extraídos individualmente se alojaron en una carpeta temporal en el código en donde una vez consolidados todos los archivos estos se eliminan. El consolidado es un dataframe que convierte a excel.
-
-Cosas a considerar, al cambiar de usuario depende de su rol y perfil dentro de la plataforma dado que su url dependerá de está y a su vez la forma de ingresar a la transacción (frames)
-
-Por último, en teoría están mapeados todos los posibles errores de SAP de tal forma que no tenga que ejecutarse de forma supervisada.
-
-> *Nota:* Para poder realizar inspection en una scrollbar, se basó en lo siguiente:
-https://twitter.com/sulco/status/1305841873945272321
-
-Para instalar chromedriver, debe buscar su versión de Chrome y luego descargarla aquí [Chrome Driver](https://chromedriver.chromium.org/downloads)
-
-Por otro lado, la transacción descarga archivos que contienen *export.xlsx* los cuales no son tomados en consideración al momento de consolidar por lo que en la función de consolidado estos se eliminan.
-
-## ***English Version***
+> Spanish version / Versión en español [aquí](/docs/spanish.md).
 
 This is a bot for the extraction in SAP Fiori transaction.
 
@@ -39,15 +20,15 @@ Finally, in theory all possible SAP errors are mapped in such away that they doe
 
 For install the chromedriver you have to search your chrome version and then download it here [Chrome Driver](https://chromedriver.chromium.org/downloads)
 
-Otherwise, the transaction downloads files that contain *export.xlsx* which are not taken into consideration when consolidating, so in the consolidation function these are eliminated.
+> Otherwise, the transaction downloads files that contain *export.xlsx* which are not taken into consideration when consolidating, so in the consolidation function these are eliminated.
 
-## *SQL*
+## SQL
 Install [ODBC](https://docs.microsoft.com/en-us/sql/connect/odbc/linux-mac/install-microsoft-odbc-driver-sql-server-macos?view=sql-server-ver15)
 
 For insert database from python into SQL Server :
-- https://www.dataquest.io/blog/sql-insert-tutorial/
-- https://stackoverflow.com/questions/11451101/retrieving-data-from-sql-using-pyodbc/11451863 
-- https://stackoverflow.com/questions/31997859/bulk-insert-a-pandas-dataframe-using-sqlalchemy
+- [sql-insert-tutorial](https://www.dataquest.io/blog/sql-insert-tutorial/)
+- [Retrieving Data from SQL Using pyodbc](https://stackoverflow.com/questions/11451101/retrieving-data-from-sql-using-pyodbc/11451863)
+- [Bulk Insert A Pandas DataFrame Using SQLAlchemy](https://stackoverflow.com/questions/31997859/bulk-insert-a-pandas-dataframe-using-sqlalchemy)
 
 
 ## Execute locally
