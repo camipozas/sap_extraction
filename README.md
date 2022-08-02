@@ -4,15 +4,6 @@
 
 Bot para extracción de transacción FBL5N en SAP Fiori.
 
-Las librerías utilizadas son:
-- Selenium
-- Datatime
-- Environs (para protección de credenciales)
-- Os
-- Shutil
-- Pandas
-- sqlalchemy (Conexión a SQL Server)
-
 En primer lugar, se definió la función *descarga()* que ingresa a la transacción de SAP, mediante selenium se realizan todos los clicks correspondientes para poder realizar el flujo completo y extraer los datos.
 
 Cabe destacar que SAP posee frames, es decir páginas dentro de otra página por lo que hay que utilizar switch para ingresar.
@@ -23,7 +14,7 @@ Cosas a considerar, al cambiar de usuario depende de su rol y perfil dentro de l
 
 Por último, en teoría están mapeados todos los posibles errores de SAP de tal forma que no tenga que ejecutarse de forma supervisada.
 
-*Nota:* Para poder realizar inspection en una scrollbar, se basó en lo siguiente:
+> *Nota:* Para poder realizar inspection en una scrollbar, se basó en lo siguiente:
 https://twitter.com/sulco/status/1305841873945272321
 
 Para instalar chromedriver, debe buscar su versión de Chrome y luego descargarla aquí [Chrome Driver](https://chromedriver.chromium.org/downloads)
@@ -33,14 +24,6 @@ Por otro lado, la transacción descarga archivos que contienen *export.xlsx* los
 ## ***English Version***
 
 This is a bot for the extraction in SAP Fiori transaction.
-The libraries used are:
-- Selenium
-- Datatime
-- Environs (for security of credentials)
-- Os
-- Shutil
-- Pandas
-- sqlalchemy (connection to sql server)
 
 Fistable, I defined the function *descarga()* that enters in the transaction in SAP by selenium I did the all scraping to do all the flow and extract the data.
 
@@ -52,7 +35,7 @@ Things to consider, when changing users it depends on their role and profile wit
 
 Finally, in theory all possible SAP errors are mapped in such away that they doesn't have to be executed in a supervised way.
 
-*Note:* To be able to perform inspection in a scrollbar, was based on this following: https://twitter.com/sulco/status/1305841873945272321 
+> *Note:* To be able to perform inspection in a scrollbar, was based on this following: https://twitter.com/sulco/status/1305841873945272321 
 
 For install the chromedriver you have to search your chrome version and then download it here [Chrome Driver](https://chromedriver.chromium.org/downloads)
 
@@ -67,18 +50,26 @@ For insert database from python into SQL Server :
 - https://stackoverflow.com/questions/31997859/bulk-insert-a-pandas-dataframe-using-sqlalchemy
 
 
-## RUN
+## Execute locally
 For execute this code you have to run some commands in this order: 
 1. Open the folder on the terminal
-2. python3 -m venv env
-3. source ./env/bin/activate
-4. pip install -r requirements.txt
-5. Then you have to create a new file called .env who have the credentials. For example:
-    - user_name=YOUR USERNAME
-    - password="YOUR PASSWORD"
-    - driver_path="./chromedriver"
-    - server_sql = "SERVER SQL"
-    - database = "DATABASE"
-    - user_sql = "USERNAME SQL"
-    - pass_sql = "PASSWORD SQL"
-    - mssql_driver = "ODBC+Driver+17+for+SQL+Server"
+2. Activate virtual enviroment
+```bash
+python3 -m venv env
+source ./env/bin/activate
+```
+3. Install dependencies
+```bash
+pip install -r requirements.txt
+```
+4. Then you have to create a new file called `.env` who have the credentials. For example:
+```env
+user_name=YOUR USERNAME
+password="YOUR PASSWORD"
+driver_path="./chromedriver"
+server_sql = "SERVER SQL"
+database = "DATABASE"
+user_sql = "USERNAME SQL"
+pass_sql = "PASSWORD SQL"
+mssql_driver = "ODBC+Driver+17+for+SQL+Server"
+```
