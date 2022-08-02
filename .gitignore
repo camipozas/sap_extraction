@@ -5,3 +5,4 @@ chromedriver*
 *.xlsx
 __pycache__/
 .tar
+.vscode
